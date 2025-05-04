@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zen0 | Offensive Cyber Mode</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <link rel="stylesheet" href="../assets/css/zen0.css">
+</head>
+<body class="zen0">
+  <!-- MODE SELECT PROMPT -->
+  <div id="mode-prompt" class="fullscreen">
+    <div class="centered-text">
+      <p data-i18n="zen0_mode_select">Select your interface</p>
+      <button onclick="setMode('beginner')" data-i18n="zen0_button_easy">[1] Beginner</button>
+      <button onclick="setMode('expert')" data-i18n="zen0_button_hard">[2] Expert</button>
+      <button id="lang-toggle">🌐</button>
+    </div>
+  </div>
+
+  <!-- MODE TOGGLE FLOATING BUTTON -->
+  <div id="mode-toggle" class="mode-toggle hidden">
+    <button onclick="toggleMode()">Toggle Mode</button>
+  </div>
+
+  <!-- BEGINNER MODE SECTION -->
+  <div id="beginner-mode" class="hidden">
+    <section class="section reveal">
+      <h1 class="glitch" data-i18n="zen0_welcome_title">Welcome to Zen0</h1>
+      <p class="subtitle" data-i18n="zen0_welcome_sub">The offensive side of cybersecurity. Controlled chaos meets precision.</p>
+    </section>
+
+    <section class="section reveal">
+      <h2 data-i18n="zen0_mission_title">Mission / Manifesto</h2>
+      <p data-i18n="zen0_mission_text">
+        Zen0 is born from curiosity — the need to explore, break, and understand systems at their core.
+        I see hacking as a language: a sharp and honest way to test the real resilience of digital environments.
+        No polished interface can cover a well-placed flaw.
+        This is my offensive side: where logic meets chaos to build something better.
+      </p>
+    </section>
+
+    <section class="section reveal">
+      <h2 data-i18n="zen0_approach_title">Approach</h2>
+      <p data-i18n="zen0_approach_text">
+        I don't follow checklists. I don’t simulate risk, I explore it. Every target is different. Every test starts with a single question:
+        "If I wanted in, where would I start?"
+        From there, I observe, I test, I adapt.
+        I look for human errors, blind spots, assumptions.
+        When I find the crack, I document it—not to exploit, but to teach where no one else was looking.
+      </p>
+    </section>
+
+    <section class="section reveal">
+      <h2 data-i18n="zen0_skills_title">Skills</h2>
+      <ul class="skills-list">
+        <li>🧭 Recon & OSINT</li>
+        <li>💣 Exploit Development</li>
+        <li>🎭 Social Engineering</li>
+        <li>🏁 CTF & Red Team Simulations</li>
+      </ul>
+    </section>
+
+    <section class="section reveal">
+      <h2 data-i18n="zen0_services_title">Services</h2>
+      <ul class="skills-list">
+        <li>🔓 External Attack Simulation</li>
+        <li>🎯 Phishing & Social Engineering</li>
+        <li>🛡 Red Team Light</li>
+        <li>🧠 OSINT & Recon</li>
+      </ul>
+    </section>
+
+    <section class="section reveal" id="projects">
+      <h2 data-i18n="zen0_projects_title">Projects & Research</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>📂 OSINT Exposure</h3>
+          <p class="project-brief" data-i18n="zen0_proj1_brief">Studio continuo delle esposizioni involontarie in ambienti pubblici.</p>
+          <button class="project-toggle" data-i18n="zen0_proj_more">More</button>
+          <div class="project-detail">
+            <p data-i18n="zen0_proj1_detail">Analisi su metadata, DNS records, email leaks, codice pubblico e profili social per individuare vulnerabilità logiche sfruttabili anche senza accesso diretto.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3>🧪 ZenNotes</h3>
+          <p class="project-brief" data-i18n="zen0_proj2_brief">Collezione personale di tecniche e script red team (non pubblicata).</p>
+          <button class="project-toggle" data-i18n="zen0_proj_more">More</button>
+          <div class="project-detail">
+            <p data-i18n="zen0_proj2_detail">Organizzazione metodologica per attacchi personalizzati, escalation, evasion e automation. ZenNotes è il mio laboratorio portatile.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3>🧠 CMS Analysis</h3>
+          <p class="project-brief" data-i18n="zen0_proj3_brief">Test manuali su sistemi aziendali custom.</p>
+          <button class="project-toggle" data-i18n="zen0_proj_more">More</button>
+          <div class="project-detail">
+            <p data-i18n="zen0_proj3_detail">Focus su autenticazione, controllo accessi e input validation lato client/server. Alcuni test eseguiti in ambienti staging con permessi limitati.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <h2 data-i18n="zen0_contact_title">Contact</h2>
+      <p data-i18n="zen0_contact_text">Want to collaborate, test a system, or share challenges?</p>
+      <form>
+        <input type="text" placeholder="Alias or Name" required />
+        <input type="email" placeholder="Contact Email" required />
+        <textarea placeholder="Encrypted Message (optional)"></textarea>
+        <button type="submit" data-i18n="zen0_contact_send">Send Stealth</button>
+      </form>
+    </section>
+  </div>
+  <button id="go-light" class="floating-light-button">☀ Light Side</button>
+
+    <div id="light-transition" class="hidden">
+      <div class="terminal-hack">
+        <p>Intrusion detected...</p>
+        <p>Isolating threat...</p>
+        <p>System integrity restored.</p>
+        <p>Returning to Jurgen...</p>
+      </div>
+    </div>
+
+  <!-- EXPERT MODE: TERMINAL INTERFACE -->
+  <div id="expert-mode" class="terminal-screen hidden">
+    <div class="terminal-hint">Use <strong>help</strong> to list available commands.</div>
+    <div class="terminal-output" id="terminal-output"></div>
+    <div class="terminal-input">
+      <span class="prompt" id="terminal-path">zen0@root:~$</span>
+      <input type="text" id="terminal-cmd" autofocus />
+    </div>
+  </div>
+  <script src="../assets/js/translations.js"></script>
+  <script src="../assets/js/lang-handler.js"></script>
+  <script src="../assets/js/terminal-mode.js"></script>
+  <script src="../assets/js/scroll-reveal.js"></script>
+  <script src="../assets/js/projects-toggle.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('go-light');
+      const overlay = document.getElementById('light-transition');
+  
+      if (btn && overlay) {
+        btn.addEventListener('click', () => {
+          overlay.classList.remove('hidden');
+          setTimeout(() => {
+            window.location.href = '../jurgen/index.html';
+          }, 6000);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

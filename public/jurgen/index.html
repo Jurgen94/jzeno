@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jurgen Zenelaj | IT & Cybersecurity</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/global.css" />
+  <link rel="stylesheet" href="../assets/css/jurgen.css" />
+</head>
+<body class="jurgen">
+
+  <nav class="orbit-nav">
+    <a href="#intro">Home</a>
+    <a href="#mission">Mission</a>
+    <a href="#services">Services</a>
+    <a href="#profile">Profile</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div id="intro" class="section">
+    <h1 class="typing">Hi, I'm Jurgen Zenelaj</h1>
+    <p>Cybersecurity architect & IT strategist for the digital age.</p>
+    <div class="scroll-indicator">↓ scroll to explore</div>
+  </div>
+
+  <div id="mission" class="section reveal">
+    <h2>Designing systems is easy. Making them secure, simple, and resilient — that's where I thrive.</h2>
+    <p class="subtitle">Driven by curiosity, I dive deep to understand how things work — then make them better.</p>
+  </div>
+
+  <div id="services" class="section grid reveal">
+    <div class="service-tile">
+      <h3>Cybersecurity Consulting</h3>
+      <p>Strategic analysis and security design tailored for business-critical systems.</p>
+    </div>
+    <div class="service-tile">
+      <h3>IT Architecture</h3>
+      <p>From zero to scalable: infrastructure, networks and cloud — done right.</p>
+    </div>
+    <div class="service-tile">
+      <h3>Cloud Hardening</h3>
+      <p>Securing AWS, Azure, and hybrid environments with a zero-trust mindset.</p>
+    </div>
+    <div class="service-tile">
+      <h3>Threat Modeling</h3>
+      <p>Identifying risks before attackers do. Building defense into design.</p>
+    </div>
+  </div>
+
+  <div id="profile" class="section reveal">
+    <div class="bio-block">
+      <h2>About Me</h2>
+      <p>
+        I'm Jurgen, an Albanian who grew up in Italy, shaped by two cultures and a relentless hunger to learn.
+        I love understanding systems — not just digital ones, but anything with logic and flow.
+        After earning a technical diploma in IT and diving into engineering studies, I realized theory alone wasn't enough.
+        I chose to walk a practical path, solving real problems and building secure solutions that actually work.
+      </p>
+    </div>
+    <div class="datacard">
+      <h3>🧠 Skills</h3>
+      <ul>
+        <li>Network & Application Security</li>
+        <li>Infrastructure Design</li>
+        <li>Red/Blue Team Exposure</li>
+        <li>Linux & Scripting</li>
+      </ul>
+    </div>
+    <div class="datacard">
+      <h3>📜 Certifications</h3>
+      <ul>
+        <li>OSCP (in progress)</li>
+        <li>Azure Solutions Architect (AZ-305)</li>
+        <li>Google IT Support Fundamentals</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="contact" class="section reveal">
+    <h3>Let's Connect</h3>
+    <p>If you're building something important — and you care about doing it securely — let's talk.</p>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send Securely</button>
+    </form>
+  </div>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+<!-- Floating Button -->
+<button id="go-dark" class="floating-dark-button">☠ Dark Side</button>
+
+<!-- Terminal Effect Overlay -->
+<div id="dark-transition" class="hidden">
+  <div class="terminal-hack">
+    <p>System breach detected...</p>
+    <p>Injecting payload...</p>
+    <p>Gaining access...</p>
+    <p>Access granted. Welcome to Zen0.</p>
+  </div>
+</div>
+  <script src="../assets/js/translations.js"></script>
+  <script src="../assets/js/lang-handler.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('go-dark');
+      const overlay = document.getElementById('dark-transition');
+  
+      if (btn && overlay) {
+        btn.addEventListener('click', () => {
+          overlay.classList.remove('hidden');
+          setTimeout(() => {
+            window.location.href = '../zen0/index.html';
+          }, 6000);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
